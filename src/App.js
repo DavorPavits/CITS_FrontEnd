@@ -28,7 +28,21 @@ function Greeter({children , message}){
   );
 }
 
+function User({name, age}){
+  return <p>{name}({age} years old)</p>
+}
+
 function App(){
+  let users = [
+    <User name="Bob"/>,
+    <User name = "Mary"/>
+  ];
+
+  let userobjects = [
+    { name:"Bob", age:23},
+    { name:"Helen", age:44},
+  ]
+
   return (
     <div>
       <h1>Hello World</h1>
@@ -39,6 +53,13 @@ function App(){
         <Greet user="Davor"/>
         <Greet />
       </Greeter>
+
+      <h2>Users are:</h2>
+      {users.map((u,i) => <>{i}: <User name={u}/> </>)}
+
+      <h2>Users with age:</h2>
+      {userobjects.map((u)=> <><User name={u.name}
+                                      age={u.age}/></>)}
     </div>
   );
 }
