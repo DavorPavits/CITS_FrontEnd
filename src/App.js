@@ -8,14 +8,24 @@ function Sum(){
 function Greet({user}){
   
   if(!user){
-    return(<p>No user</p>);
+    return(<h1>No user</h1>);
   }else if(user === "Bob"){
-    return(<p>Acces Denied</p>);
+    return(<h1>Acces Denied</h1>);
   }else{
   return(
     <h1>Hello {user}</h1>
   );
   }
+}
+
+//Ex 2
+function Greeter({children , message}){
+  return (
+    <div>
+      <h1>{message}</h1>
+      {children}
+    </div>
+  );
 }
 
 function App(){
@@ -24,8 +34,11 @@ function App(){
       <h1>Hello World</h1>
       <p>Made with React.</p>
       <Sum/>
-      {/* <Greet user={"Bob"}/> */}
-      <Greet user="Davor"/>
+      <Greeter message={"Is the user Logged In"}>
+        <Greet user="Bob"/>
+        <Greet user="Davor"/>
+        <Greet />
+      </Greeter>
     </div>
   );
 }
