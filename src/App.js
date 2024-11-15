@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function Sum(){
   return (
     <p>1+2 equals {1+2}</p>
@@ -44,6 +46,9 @@ function App(){
     { name:"Helen", age:44},
   ]
 
+  const [counter, setCounter] = useState(1);
+  const [counter2, setCounter2] = useState(1);
+
   return (
     <div>
       <h1>Hello World</h1>
@@ -61,6 +66,19 @@ function App(){
       <h2>Users with age:</h2>
       {userobjects.map((u)=> <><User name={u.name}
                                       age={u.age}/></>)}
+
+      {/* Ex_4 */}
+      <p><i>Counter: {counter} ::: CounterSquared:{counter2}</i></p>
+      <button onClick={e=>{
+        
+        setCounter(counter+1)
+        setCounter2(counter2 * counter2)}}>
+        Click Me
+      </button>
+      <button onClick={e=>{setCounter(0)
+        setCounter2(0)}}>
+        Reset Counter
+      </button>
     </div>
   );
 }
