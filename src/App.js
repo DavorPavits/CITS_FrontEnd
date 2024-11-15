@@ -32,6 +32,7 @@ function User({name, age}){
   return <p>{name}({age} years old)</p>
 }
 
+
 function App(){
   let users = [
     <User name="Bob"/>,
@@ -55,7 +56,7 @@ function App(){
       </Greeter>
 
       <h2>Users are:</h2>
-      {users.map((u,i) => <>{i}: <User name={u}/> </>)}
+      {users.map((u,i) => <div>{i}: <User name={u}/> </div>)}
 
       <h2>Users with age:</h2>
       {userobjects.map((u)=> <><User name={u.name}
